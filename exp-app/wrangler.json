@@ -1,0 +1,9 @@
+{
+   "name": "exp-app",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-12-16",
+  "vars": {
+   "DATABASE_URL":"prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza19rRXgxWHRBQkZWdUxRc2R6VG5tQkwiLCJhcGlfa2V5IjoiMDFLSFE0TUQ0R0cwS1YzTkVWSjZaMEhZUzMiLCJ0ZW5hbnRfaWQiOiIwMjMwNzE1NmYyZWZmOTE1NzZlZTQzZDc2MzI3NDFiODAyMjNhNmU5NTY1YzliOGFlNTQ0Zjc5ZmNkOWYxOTVmIiwiaW50ZXJuYWxfc2VjcmV0IjoiMmNmNWNjNTMtMzcwMi00YWRkLTlhYWItMjhkZjY5NWMwMDFkIn0.HALfij6f7_w-w-XnqGwEXhASue9DYCbrlPs2eC-1ieg",
+   "JWT":"nasecret"
+  }
+}
