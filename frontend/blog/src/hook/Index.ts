@@ -1,13 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-// import { Backend } from "../pages/Backend"
+import { Backend } from "../pages/Backend"
 
 
 export const UseAppbar=()=>{
     const [loading,setloading]=useState(true);
     const [blogs,setblogs]=useState([])
     useEffect(()=>{
-          axios.get(`http://127.0.0.1:8787/api/v1/blogrouter`,{
+          axios.get(`${Backend}/api/v1/blogrouter`,{
             headers:{
                 Authorization:`Bearer ${localStorage.getItem("token")}`
             }}

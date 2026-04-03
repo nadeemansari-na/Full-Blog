@@ -17,7 +17,7 @@ export const Signin = () => {
     })
   const  submit=async ()=>{
         try{
-          const ret= await axios.get(`http://127.0.0.1:8787/api/v1/userrouter/signin`,{
+          const ret= await axios.get(`${Backend}/api/v1/userrouter/signin`,{
             params:{
               email:  postinput.email,
                password: postinput.password
@@ -27,6 +27,7 @@ export const Signin = () => {
                 }
           }
           )
+          console.log(ret.data)
           navigate('/blogs')
                         
         }catch(e){

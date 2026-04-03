@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import { Useblog } from "../hook/new"
 // import type { blogtype } from "../hook/new"
 import { Link } from "react-router-dom"
+import { Blogskeleton } from "../components/Blogskeleton"
 
 export const Blog = () => {
     console.log("str")
@@ -16,11 +17,16 @@ export const Blog = () => {
    console.log(id)
    if(loading){
     return (
-        <div>
-            loading . . .
+        <div className="">
+            <div >
+                <Appbar/>
+            </div>
+            <Blogskeleton/>
         </div>
     )
    }
+
+
     return (
         <div className="flex flex-col w-screen h-screen max-h-screen">
             <Appbar/>
@@ -50,7 +56,7 @@ function Fullblog({blog}){
                 </div>
                 <div className="flex gap-3 items-center">
                 
-               <Avatar name={"na"}></Avatar>
+               <Avatar name={blog.author.name}></Avatar>
                 <div>
                 <div className="font-bold text-1xl sm:text-2xl">
                     something
@@ -76,12 +82,13 @@ function Avatar({name}:{name:string}){
 }
 
 function Appbar(){
+    const name=localStorage.getItem('user')
     return <div className="flex justify-between p-5 border-b border-b-blue-100 w-screen max-w-screen">
         <Link to={'/blogs'} className="font-bold text-2xl cursor-pointer" >
         Nextnode
         </Link>
         <div>
-            <Avatar name="na"/>
+            <Avatar name={name}/>
         </div>
     </div>
 }

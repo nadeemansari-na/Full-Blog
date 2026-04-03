@@ -1,7 +1,7 @@
 import axios from "axios"
 import { Backend } from "../pages/Backend"
+import { useNavigate } from "react-router-dom"
 // import { Backend } from "../pages/Backend"
-
 export interface addtype{
     title:string,
     content:string,
@@ -11,7 +11,7 @@ export interface addtype{
 
 
 export const useAdd=()=>{
-         
+     const    navigate=useNavigate()
   const senddata=async(postblog:addtype )=>{
     console.log('blog',postblog.title,postblog.content)
             try{
@@ -24,9 +24,10 @@ export const useAdd=()=>{
                     }
                 }
                );
-               console.log(ret.data)
+               navigate(`/blog/${ret.data.id}`)
+               console.log(ret.data.ret)
             }catch(e){
-                console.log(e)
+                console.log("error sending data",e)
             }
     }
 

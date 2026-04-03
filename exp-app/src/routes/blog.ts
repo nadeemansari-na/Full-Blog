@@ -50,7 +50,9 @@ blogrouter.post('/blog',async (c)=>{
     }
   })
   
-  return c.json({})
+  return c.json({
+   id: newpost.id
+  })
 })
 
 blogrouter.put('/blog',async (c)=>{

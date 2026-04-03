@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect,useState } from "react"
+import { Backend } from "../pages/Backend"
 
 export interface blogtype{
     id:number,
@@ -22,7 +23,7 @@ export const Useblog = ({id }:idtype) => {
   const fetchBlog = async () => {
     try {
       const res = await axios.get(`
-         http://127.0.0.1:8787/api/v1/blogrouter/blog/${id}`,
+         ${Backend}/api/v1/blogrouter/blog/${id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
