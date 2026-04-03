@@ -21,10 +21,10 @@ export const Addblog = () => {
     }
 
     return (
-        <div className="flex flex-col w-screen h-screen max-h-screen">
+        <div className="flex flex-col w-screen  h-screen max-h-screen">
             <Appbar/>
-        <div className="flex flex-col w-screen h-screen items-center justify-center gap-3">
-            <input value={postblog.title} type="text" placeholder="title" className="outline-cyan-700 border border-cyan-800 text-black font-semibold  rounded-md focus:ring-0 focus:border-0 block  px-4 py-3.5 shadow-xs placeholder:text-black"
+        <div className="flex flex-col w-screen md:h-3/4 h-2/3 items-center justify-center gap-3">
+            <input value={postblog.title} type="text" placeholder="title" className="md:w-1/2 w-2/3  outline-cyan-700 border border-cyan-800 text-black font-semibold  rounded-md focus:ring-0  block  px-3 py-3.5 md:py-5 shadow-xs focus:shadow-purple-200 text-2xl placeholder:text-gray-600"
                 onChange={(e) => {
                     setpostblog({
                         ...postblog,
@@ -32,7 +32,7 @@ export const Addblog = () => {
                     })
 
                 }} />
-            <textarea value={postblog.content} className="border p-2 mb-2 block" onChange={(e) => {
+            <textarea value={postblog.content}  className="md:w-1/2 w-2/3 outline-cyan-700 border border-cyan-800  px-3 py-3 md:py-5 mb-2  rounded-md  font-semibold text-2xl  placeholder:text-gray-600 shadow-xs focus:shadow-purple-200 " placeholder="content" onChange={(e) => {
                 setpostblog({
                     ...postblog,
                     content: e.target.value
@@ -40,10 +40,12 @@ export const Addblog = () => {
             }}>
 
             </textarea>
-            
-                <button className="bg-blue-500 cursor-pointer text-white px-4 py-2" onClick={submit}>
+            <div className="md:w-1/2 w-2/3 ">
+
+                <button className="justify-self-start rounded-md bg-linear-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-linear-to-br focus:ring-2 focus:outline-none focus:ring-purple-400 dark:focus:ring-purple-800 cursor-pointer text-white px-4 py-2  " onClick={submit}>
                     publish
                 </button>
+            </div>
             
         </div>
         </div>

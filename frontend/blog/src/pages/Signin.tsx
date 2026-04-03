@@ -28,6 +28,8 @@ export const Signin = () => {
           }
           )
           console.log(ret.data)
+          localStorage.setItem("token",ret.data.token)
+          localStorage.setItem("user",ret.data.email)
           navigate('/blogs')
                         
         }catch(e){

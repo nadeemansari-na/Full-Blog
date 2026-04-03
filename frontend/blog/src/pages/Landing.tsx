@@ -11,9 +11,10 @@ export const Landing = () => {
 
             {/*  Social Icons */}
             <div className="absolute top-6 right-10 flex gap-4 z-20">
-                <FaGithub className="text-black/80 hover:text-black text-3xl cursor-pointer transition" />
-                {/* <FaTwitter className="text-black/80 hover:text-black text-3xl cursor-pointer transition" />
-        <FaLinkedin className="text-black/80 hover:text-black text-3xl cursor-pointer transition" /> */}
+                <a href="https://github.com/nadeemansari-na/Full-Blog">
+                    <FaGithub className="text-black/80 hover:text-black text-3xl cursor-pointer transition" />
+                    </a>
+                
                 <a href="https://www.linkedin.com/in/nadeem-ansari-81a71336a"><FaLinkedin className="text-black text-3xl  cursor-pointer transition" /></a>
                 <a href="https://x.com/AnsariNadeem899?t=hwn-lF--Ij5zxKcMt3_lcw&s=08" ><FaTwitter className="text-black text-3xl  cursor-pointer transition" /></a>
             </div>

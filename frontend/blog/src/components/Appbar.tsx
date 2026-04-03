@@ -1,6 +1,7 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Link } from 'react-router-dom'
 import { Avatar } from '../pages/Blogs'
+import { Logout } from './Delete'
 
 
 export const Appbar=()=>{
@@ -52,15 +53,10 @@ export const Appbar=()=>{
                   License
                 </a>
               </MenuItem>
-              <form action="#" method="POST">
+              
                 <MenuItem>
-               <a 
-               href="/" 
-               className="block w-full px-4 py-2 text-left text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden">
-                    SignOut
-               </a>
+              <Logout/>
                 </MenuItem>
-              </form>
             </div>
           </MenuItems>
         </Menu>

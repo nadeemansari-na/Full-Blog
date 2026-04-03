@@ -45,22 +45,7 @@ userrouter.post('/signup', async (c) => {
 
 })
 
-  userrouter.use('/*',async (c , next)=>{
-     const header=c.req.header("authorization")|| "";
-  const token=header.split(" ")[1]
-  
-  const response=await verify(token,JWT_SECRET,"HS256");
-  if(response.id){
-    // c.set("userId",response.id as any);
-    await next()
-  }
-  else{
-    c.status(403)
-    return c.json({error:"unathorized"})
-  }
 
-return c.json('notext')
-})
 
 userrouter.get('/signin',async (c)=>{
 const prisma=createPrisma(c.env.DATABASE_URL);
@@ -82,7 +67,10 @@ const prisma=createPrisma(c.env.DATABASE_URL);
     }
   
     const token=await sign({id:user.id},JWT_SECRET);
-    return c.json(token)
+    return c.json({
+      token,
+      email:user.email
+    })
 
   }catch(e){
     c.status(403)
