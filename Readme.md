@@ -31,47 +31,13 @@ A modern full-stack blogging platform built with a powerful and scalable tech st
 
 ---
 
-## 📂 Project Structure
-
-```
-/backend   → Hono + Prisma + Cloudflare Workers
-/frontend  → React + Tailwind CSS
-```
-
 ---
 
-## 🛠️ Setup Instructions
-
-### 1. Clone the repo
-
-```
-git clone <your-repo-url>
-cd your-project
-```
-
-### 2. Setup Backend
-
-```
-cd backend
-npm install
-npx prisma generate
-npm run dev
-```
-
-### 3. Setup Frontend
-
-```
-cd frontend
-npm install
-npm run dev
-```
-
----
 
 ## 🌍 Deployment
 
 * **Backend**: Deployed on Cloudflare Workers
-* **Frontend**: Can be deployed on Vercel / Netlify
+* **Frontend**:deployed on Vercel
 
 ---
 
