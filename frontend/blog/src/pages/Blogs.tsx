@@ -39,9 +39,3 @@ export function Avatar({name}:{name:string}){
     )
 }
 
-function Delet(){
-    localStorage.setItem("token","")
-    return (
-        <div></div>
-    )
-}

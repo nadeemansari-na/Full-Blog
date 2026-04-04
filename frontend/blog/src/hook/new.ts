@@ -22,11 +22,16 @@ export const Useblog = ({id }:idtype) => {
 
   const fetchBlog = async () => {
     try {
+      const token=localStorage.getItem("token")
+                if(!token){
+                    console.log("no token found")
+                    return 
+                }
       const res = await axios.get(`
          ${Backend}/api/v1/blogrouter/blog/${id}`,
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`
+            Authorization: `Bearer ${token}`
           }
         }
       )

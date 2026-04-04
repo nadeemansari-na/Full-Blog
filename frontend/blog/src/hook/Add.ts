@@ -15,12 +15,17 @@ export const useAdd=()=>{
   const senddata=async(postblog:addtype )=>{
     console.log('blog',postblog.title,postblog.content)
             try{
+                const token=localStorage.getItem("token")
+                if(!token){
+                    console.log("no token found")
+                    return 
+                }
             const ret=await axios.post(`${Backend}/api/v1/blogrouter/blog`,{
                   title:postblog.title,
                    content:postblog.content
                 },{
                     headers:{
-                        Authorization:`Bearer ${localStorage.getItem("token")}`
+                        Authorization:`Bearer ${token}`
                     }
                 }
                );
