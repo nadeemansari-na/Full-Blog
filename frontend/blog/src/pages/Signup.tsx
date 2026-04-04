@@ -8,7 +8,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { ButtonWarning } from "../components/ButtonWarning"
 import { useNavigate } from "react-router-dom"
 import type { Check } from "@codingwith/common";
-import { Backend } from "./Backend"
+// import { Backend } from "./Backend"
 
 export const Signup = () => {
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ export const Signup = () => {
 
         const  submit=async () => {
             try{
-                    const result = await axios.post(`${Backend}/api/v1/userrouter/signup`, postinputs)
+                    const result = await axios.post(`http://127.0.0.1:8787/api/v1/userrouter/signup`, postinputs)
                     console.log("msg:" + result.data.msg)
                         if (result.data.msg == "user created successfully") {
                             localStorage.setItem("token", result.data.token)

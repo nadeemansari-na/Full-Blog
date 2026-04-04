@@ -3,7 +3,6 @@ import { createPrisma } from '../db'
 import { decode, sign, verify } from 'hono/jwt'
 import {blogcheck,postblog} from '@codingwith/common'
 
-const JWT_SECRET="nasecret";
 export const blogrouter=new Hono<{
     Bindings:{
         DATABASE_URL:string
@@ -21,7 +20,7 @@ blogrouter.use('/*',async (c , next)=>{
   const header=c.req.header("authorization")|| "";
   const token=header.split(" ")[1]
   
-  const response=await verify(token,JWT_SECRET,"HS256");
+  const response=await verify(token,c.env.JWT_SECRET,"HS256");
   if(response.id){
     c.set("userId",response.id as any);
     await next()
@@ -35,10 +34,8 @@ blogrouter.use('/*',async (c , next)=>{
 })
 
 blogrouter.post('/blog',async (c)=>{
-  console.log("reached ")
   const prisma=createPrisma(c.env.DATABASE_URL)
   const body=await c.req.json()
-  console.log(body)
   const chheck=blogcheck.safeParse({
     body
   })
@@ -58,7 +55,6 @@ blogrouter.post('/blog',async (c)=>{
 blogrouter.put('/blog',async (c)=>{
        const prisma=createPrisma(c.env.DATABASE_URL)
   const body=await c.req.json()
-  console.log("reached")
   const pput=postblog.safeParse({body})
     const update=await prisma.post.update({
         where:{
@@ -75,8 +71,6 @@ blogrouter.put('/blog',async (c)=>{
 
 
 blogrouter.get('/blog/:id',async (c)=>{
-  console.log("reached")
-  console.log(c.req.param("id"))
   const que=c.req.param("id")
   const prisma=createPrisma(c.env.DATABASE_URL);
   try{
@@ -99,7 +93,6 @@ blogrouter.get('/blog/:id',async (c)=>{
       blog
     })
   }catch(e){
-    console.log(e)
     return c.json({
       message:"error while fetching blog post"
     })

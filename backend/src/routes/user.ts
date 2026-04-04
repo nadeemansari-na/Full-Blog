@@ -4,7 +4,6 @@ import { decode, sign, verify } from 'hono/jwt'
 import {check} from "@codingwith/common";
 
 
-const JWT_SECRET="nasecret";
 export const userrouter = new Hono<{   Bindings: {
   DATABASE_URL: string
   JWT_SECRET: string
@@ -15,8 +14,6 @@ export const userrouter = new Hono<{   Bindings: {
 userrouter.post('/signup', async (c) => {
   // const users=await prisma.user.findMany()
   const prisma=createPrisma(c.env.DATABASE_URL);
-  console.log(c.env.JWT_SECRET)
-  console.log(c.env.DATABASE_URL)
   const body=await c.req.json();
   const {success}=check.safeParse(body)
   if(!success){
@@ -30,7 +27,7 @@ userrouter.post('/signup', async (c) => {
          password:body.password
        },
      })
-     const token=await sign({id:user.id},JWT_SECRET)
+     const token=await sign({id:user.id},c.env.JWT_SECRET)
      
      return c.json({
        token:token,
@@ -38,7 +35,6 @@ userrouter.post('/signup', async (c) => {
        email:body.email
      })
   } catch(e){
-    console.log(e)
     c.status(411)
    return c.text('invalid')
   } 
@@ -50,10 +46,8 @@ userrouter.post('/signup', async (c) => {
 userrouter.get('/signin',async (c)=>{
 const prisma=createPrisma(c.env.DATABASE_URL);
 
-  console.log("has it reached")
   const email=c.req.query('email');
   const password=c.req.query('password')
-  console.log(email,password)
   try{
     const user=await prisma.user.findUnique({
       where:{
@@ -66,7 +60,7 @@ const prisma=createPrisma(c.env.DATABASE_URL);
       return c.json({error :"user not found"})
     }
   
-    const token=await sign({id:user.id},JWT_SECRET);
+    const token=await sign({id:user.id},c.env.JWT_SECRET);
     return c.json({
       token,
       email:user.email
