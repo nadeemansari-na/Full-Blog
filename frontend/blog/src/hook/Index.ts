@@ -1,11 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Backend } from "../pages/Backend"
+import type { blogtype } from "./new";
+
 
 
 export const UseAppbar=()=>{
     const [loading,setloading]=useState(true);
-    const [blogs,setblogs]=useState([])
+    const [blogs,setblogs]=useState<blogtype[]>([])
     useEffect(()=>{
         const token=localStorage.getItem("token")
                 if(!token){

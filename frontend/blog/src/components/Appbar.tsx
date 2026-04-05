@@ -20,7 +20,7 @@ export const Appbar=()=>{
                       </div>
                         <Menu as="div" className="relative inline-block">
           <MenuButton className="cursor-pointer">
-                    <Avatar name={localStorage.getItem("user")} />
+                    <Avatar name={localStorage.getItem("user") || ""} />
            
           </MenuButton>
     

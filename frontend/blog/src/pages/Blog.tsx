@@ -2,8 +2,7 @@
 // import { Backend } from "./Backend"
 // import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Useblog } from "../hook/new"
-// import type { blogtype } from "../hook/new"
+import { Useblog, type blogtype} from "../hook/new"
 import { Link } from "react-router-dom"
 import { Blogskeleton } from "../components/Blogskeleton"
 
@@ -30,12 +29,12 @@ export const Blog = () => {
     return (
         <div className="flex flex-col w-screen h-screen max-h-screen">
             <Appbar/>
-           <Fullblog blog={bloggs}></Fullblog>
+          {bloggs && <Fullblog blog={bloggs}></Fullblog>}
         </div>
     )
 }
 
-function Fullblog({blog}){
+function Fullblog({blog}:{blog:blogtype}){
     return (
         <div className=" flex flex-col items-center justify-evenly mb-40   sm:flex-row sm:justify-evenly   w-screen max-w-screen h-screen sm:pl-4 sm:pr-4 ">
             <div className="gap-2  flex-col flex max-w-7xl">
@@ -88,7 +87,7 @@ function Appbar(){
         Nextnode
         </Link>
         <div>
-            <Avatar name={name}/>
+            <Avatar name={name || ""}/>
         </div>
     </div>
 }

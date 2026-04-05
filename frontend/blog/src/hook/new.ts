@@ -4,8 +4,8 @@ import { Backend } from "../pages/Backend"
 
 export interface blogtype{
     id:number,
-    title:string,
     content:string,
+    title:string,
     author:{
         name:string
     }

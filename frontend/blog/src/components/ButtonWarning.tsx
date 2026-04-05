@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom"
 
-export function ButtonWarning({label,buttontext , to}){
+interface btnwarn{
+    label:string,
+    buttontext:string,
+    to:string
+}
+export function ButtonWarning({label,buttontext , to}:btnwarn){
     return <div className="ml-8">
         <div>
             {label}

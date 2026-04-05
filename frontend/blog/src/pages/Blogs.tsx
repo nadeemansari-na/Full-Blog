@@ -1,7 +1,7 @@
 import { Appbar } from "../components/Appbar";
 import { Blogcard } from "../components/Blogcard"
 import { Blogskeleton } from "../components/Blogskeleton"
-import {UseAppbar} from "../hook"
+import { UseAppbar } from "../hook/Index";
 // import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 export const Blogs = () =>{
@@ -23,7 +23,7 @@ export const Blogs = () =>{
         <div className="p-8 flex  flex-col gap-4 justify-center items-center ">
             {blogs.map(blog=>
             
-                <Blogcard id={blog.id} author={blog.author.name} title={blog.title} content={blog.content} publisheddate="28 march 26"/>
+                <Blogcard id={blog.id } author={blog.author.name} title={blog.title} content={blog.content} publisheddate="28 march 26"/>
 
             )}
         </div>

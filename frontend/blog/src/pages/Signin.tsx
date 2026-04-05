@@ -52,7 +52,7 @@ export const Signin = () => {
                             email: e.target.value
                         })
                     }} placeholder={"nadeemans@gmail.com"} label={"Email"}></Inputbox>
-                    <Inputbox Type={"number"} onchange={(e) => {
+                    <Inputbox onchange={(e) => {
                         setpostinput({
                             ...postinput,
                             password: e.target.value

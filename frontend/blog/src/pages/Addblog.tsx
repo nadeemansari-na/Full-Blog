@@ -68,7 +68,7 @@ function Appbar(){
         Nextnode
         </Link>
         <div>
-            <Avatar name={name}/>
+            <Avatar name={name || ""}/>
         </div>
     </div>
 }
