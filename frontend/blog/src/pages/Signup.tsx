@@ -23,17 +23,18 @@ export const Signup = () => {
             try{
                     const result = await axios.post(`${Backend}/api/v1/userrouter/signup`, postinputs)
                     console.log("msg:" + result.data.msg)
-                        if (result.data.msg == "user created successfully") {
-                            localStorage.setItem("token", result.data.token)
-                            localStorage.setItem("user", result.data.email)
-                            navigate('/blogs')
-                        }
-                        else alert("your credential are wrong")
-                    }catch(e){
-                        console.log(e)
+                    if (result.data.msg == "user created successfully") {
+                        localStorage.setItem("token", result.data.token)
+                        localStorage.setItem("user", result.data.email)
+                        navigate('/blogs')
                     }
+                    else alert("your credential are wrong")
+                }catch(e){
+                    console.log(e)
                 }
-                
+            }
+            
+            console.log("import ",import.meta.env)
     // if(!localStorage.getItem("token") || localStorage.getItem(" ")){
     return <div className=" flex justify-center items-center ">
         <div className="w-lvw h-screen flex justify-center items-center bg-white rounded-2xl shadow-amber-400 md:w-dvw">
