@@ -37,7 +37,7 @@ export const Blog = () => {
 function Fullblog({blog}:{blog:blogtype}){
     return (
         <div className=" flex flex-col items-center justify-evenly mb-40   sm:flex-row sm:justify-evenly   w-screen max-w-screen h-screen sm:pl-4 sm:pr-4 ">
-            <div className="gap-2  flex-col flex max-w-7xl">
+            <div className="gap-2  flex-col flex max-w-xl ">
             <div className="font-extrabold text-xl sm:text-5xl">
             {blog.title}
             </div>
